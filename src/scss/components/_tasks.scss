@@ -1,12 +1,51 @@
+@use '../utils/placeholders';
+@use '../utils/variables' as var;
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+
 .tasks {
+  @extend %section-frame;
+
   grid-area: tasks;
+
+  min-width: 340px;
+  max-height: 420px;
+
+  background-color: fn.get-color('dark-tertiary');
 }
+
 .tasks-title {
+  @extend %details;
+
+  margin-bottom: 36px;
+  color: fn.get-color('light-secondary');
+
+  span {
+    @extend %accent-text;
+    color: fn.get-color('light-primary');
+  }
 }
+
 .tasks-list {
+  @include mx.scroll-bar;
+
+  max-height: 288px;
+  overflow: auto;
+
+  @include mx.mq('lg') {
+    margin-right: -14px;
+  }
 }
+
 .tasks-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  padding: 16px 8px;
+  border-top: 1px solid;
 }
+
 .tasks-checkbox {
 }
 .tasks-input {
