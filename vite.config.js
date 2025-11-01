@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   // 🔑 базовий шлях має дорівнювати назві репозиторію на GitHub Pages
-  base: '/crm-project/',
+  base: '/',
 
   plugins: [
     // ⚙️ Оптимізація зображень під час білду
