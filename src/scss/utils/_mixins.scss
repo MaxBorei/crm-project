@@ -77,7 +77,7 @@
     @warn "The variable $ease is not defined";
   }
 
-  @if list.length($properties) > 0 {
-    transition-property: $properties;
-  }
+  // @if list.length($properties) > 0 {
+  //   transition-property: $properties;
+  // }
 }
