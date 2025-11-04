@@ -4,45 +4,62 @@
 @use '../utils/mixins' as mx;
 
 .companies {
-}
-.companies-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.companies-item {
-  @extend %section-frame;
-  grid-area: companies;
-
-  min-width: 343px;
-  background-color: fn.get-color('dark-tertiary');
-
-  display: flex;
-  flex-direction: column;
-  padding: 24px 24px;
+  @include mx.mq('md') {
+    grid-column: 1 / -1;
+  }
+  text-align: center;
 }
 
 .page-title {
   width: 343px;
   margin-bottom: 40px;
+  text-align: left;
+}
+
+@include mx.mq('md') {
+  .page-title {
+    width: auto;
+    max-width: none;
+  }
+}
+
+.companies-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @include mx.mq('md') {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  margin-bottom: 12px;
+}
+
+.companies-item {
+  @extend %section-frame;
+  background-color: fn.get-color('dark-tertiary');
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 195px;
+  padding: 24px;
+  border-radius: 24px;
 }
 
 .companies-title-svg {
   display: flex;
-  flex-direction: row;
-  gap: 166px;
-  margin-bottom: 4px;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 4px;
 }
 
 .companies-title {
   @extend %accent-text;
-
   color: fn.get-color('light-primary');
 }
+
 .companies-icon {
-  //   fill: currentColor;
   stroke: fn.get-color('light');
 }
 .companies-geo-icon {
@@ -51,11 +68,16 @@
 
 .companies-caption-svg {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 8px;
   margin-bottom: 32px;
 }
 
-.btn--transparent {
+.btn.btn--transparent {
   width: 89px;
+  align-self: flex-start;
+}
+
+.companies-back-btn {
+  justify-content: center;
 }

@@ -7,12 +7,14 @@
 
     &:active {
       background-color: darken(#d14a00, 10%);
+      color: #fff;
     }
 
     @media (hover: hover) {
       &:hover,
       &:focus {
         background-color: lighten(#d14a00, 10%);
+        color: #fff;
       }
     }
 

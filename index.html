@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/sass.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final Project</title>
+    <title>CRM Project</title>
   </head>
   <body class="page">
     <aside class="sidebar js-menu" id="sidebar-menu">
@@ -130,7 +130,7 @@
     </header>
 
     <main class="main">
-      <section class="welcome">
+      <section class="welcome" data-section="dashboard">
         <h1 class="page-title">
           <span class="page-title-accent">Hi Yaroslav,</span>
           Welcome into Cat CRM Dashboard
@@ -143,7 +143,7 @@
         </button>
       </section>
 
-      <section class="co-workers">
+      <section class="co-workers" data-section="dashboard">
         <div class="co-workers-wrapper">
           <h2 class="co-workers-title">
             <span>Co-workers</span>
@@ -701,7 +701,7 @@
         </button>
       </section>
 
-      <section class="tasks">
+      <section class="tasks" data-section="dashboard">
         <h2 class="tasks-title"><span>Tasks (5) </span>| Today</h2>
         <ul class="tasks-list">
           <li class="tasks-item">
@@ -819,7 +819,7 @@
         </ul>
       </section>
 
-      <section class="reports">
+      <section class="reports" data-section="dashboard">
         <h2 class="reports-title"><span>Task Report</span> | Last 2 Weeks</h2>
         <ul class="reports-list">
           <li class="reports-item" data-status="up">
@@ -957,7 +957,7 @@
         </ul>
       </section>
 
-      <section class="companies" id="companies">
+      <section class="companies" id="companies" data-section="companies" hidden>
         <h1 class="page-title">
           <span class="page-title-accent">Companies</span>
           Here you can see the list of our companion companies
@@ -1066,6 +1066,9 @@
             </button>
           </li>
         </ul>
+        <button class="btn btn--transparent companies-back-btn" type="button">
+          <span class="btn-inner">Home</span>
+        </button>
       </section>
     </main>
 

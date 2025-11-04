@@ -4,3 +4,7 @@
 @function get-color($key) {
   @return map.get(var.$colors, $key);
 }
+
+[data-section][hidden] {
+  display: none !important;
+}
