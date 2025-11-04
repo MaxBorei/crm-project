@@ -1,33 +1,27 @@
-const isProd = process.env.NODE_ENV === 'production';
+// postcss.config.js
+const purgecss = require('@fullhuman/postcss-purgecss');
 
 module.exports = {
   plugins: [
-    // autoprefixer корисний і в dev, і в prod
-    require('autoprefixer')(),
-
-    // PurgeCSS — тільки у продакшені, щоб у dev нічого не зрізало
-    ...(isProd
-      ? [
-          require('@fullhuman/postcss-purgecss')({
-            // де шукати використані класи
-            content: [
-              './**/*.html',
-              './src/**/*.{js,ts,jsx,tsx,vue}',
-              './src/**/*.{scss,css}',
-            ],
-            // як витягувати класи
-            defaultExtractor: (content) =>
-              content.match(/[^<>"'`\\s]*[^<>"'`\\s:]/g) || [],
-            // що ніколи не видаляти
-            safelist: {
-              standard: [
-                'is-open',              // додаєш/знімаєш у JS
-                'overflow-hidden',      // якщо використовуєш для lock-scroll
-                // додай інші динамічні класи, якщо є
-              ],
-            },
-          }),
-        ]
+    require('autoprefixer'),
+    ...(process.env.NODE_ENV === 'production'
+      ? [purgecss({
+          content: [
+            './index.html',
+            './pages/**/*.html',
+            './src/js/**/*.js',
+            './src/**/*.scss',
+          ],
+          defaultExtractor: (content) => content.match(/[\w-/:.%]+/g) || [],
+          safelist: [
+            // состояния/утилиты
+            'hidden', 'visually-hidden', 'current', 'is-open',
+            // ваши блоки/компоненты
+            /^page/, /^menu/, /^sidebar/, /^header/,
+            /^btn/, 'btn', 'btn--primary', 'btn--secondary', 'btn--transparent', 'btn-inner',
+            /^companies/, /^co-workers/, /^tasks/, /^reports/,
+          ],
+        })]
       : []),
   ],
 };

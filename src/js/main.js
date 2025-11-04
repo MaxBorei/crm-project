@@ -2,6 +2,9 @@
 import '../scss/main.scss';
 import * as bodyScrollLock from 'body-scroll-lock';
 
+console.log('MAIN OK', new Date().toISOString());
+document.documentElement.setAttribute('data-js', 'on');
+
 // Sidebar menu
 const refsMenu = {
   openMenuBtn: document.querySelector('.js-menu-open'),
