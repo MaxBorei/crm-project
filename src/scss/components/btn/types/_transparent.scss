@@ -1,0 +1,23 @@
+@if index($btn-types, transparent) {
+  /* == Transparent == */
+  .btn--transparent {
+    background-color: transparent;
+    border-color: #f07f2e;
+    color: #f07f2e;
+
+    &:active {
+      background-color: darken(#d14a00, 10%);
+    }
+
+    @media (hover: hover) {
+      &:hover,
+      &:focus {
+        background-color: lighten(#d14a00, 10%);
+      }
+    }
+
+    &[disabled] {
+      background-color: #b5b5be;
+    }
+  }
+}
